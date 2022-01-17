@@ -359,7 +359,8 @@ define([
             " team for INTEROFFICE, a project funded by ",
             h('a', {href: 'https://dapsi.ngi.eu/'}, "NGI DAPSI"),
             " under ",
-            h('a', {href: 'https://cordis.europa.eu/project/id/871498'}, "EU grant #9001"),
+            h('a', {href: 'https://cordis.europa.eu/project/id/871498'}, "EU grant agreement no 781498"),
+            ".",
           ])
         var hint = h('p.cp-convert-hint', Messages.convert_hint);
         var source = h('p',
