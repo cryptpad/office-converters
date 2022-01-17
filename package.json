@@ -1,8 +1,11 @@
 {
   "name": "OfficeConverter",
+  "description": "An example of client-side office format conversion using Web Assembly",
+  "version": "1.0.0",
   "dependencies": {
     "express": "~4.16.0"
   },
+  "license": "AGPL-3.0+",
   "scripts": {
     "start": "node server.js"
   }
