@@ -1,1 +1,22 @@
 
+body{
+    max-width: 400px;
+    margin: 50px auto;
+    font-family: monospace;
+    font-size: 1.2em;
+}
+
+a {
+    color: #0087FF;
+}
+
+input {
+    border: 1px solid #0087FF;
+    padding: 5px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+button {
+    margin-right: 5px;
+}

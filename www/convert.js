@@ -346,17 +346,29 @@ define([
     };
 
     var Messages = {};
-    Messages.convert_hint = "Pick the file you want to convert. The list of output format will be visible afterward.";
+    Messages.convert_hint = "Pick the file to convert. The list of output formats will be visible afterwards.";
     Messages.convert_unsupported = "UNSUPPORTED FILE TYPE :("; // XXX
 
     // On load
     $(function () {
         var $form = $('body');
+        var title = h('h1', "INTEROFFICE Document converter example");
+        var desc = h('p', [
+            "Example of a browser-based document converter using Web Assembly. Developed by the ",
+            h('a', { href: 'https://cryptpad.org' }, "CryptPad"),
+            " team for INTEROFFICE, a project funded by ",
+            h('a', {href: 'https://dapsi.ngi.eu/'}, "NGI DAPSI"),
+            " under ",
+            h('a', {href: 'https://cordis.europa.eu/project/id/871498'}, "EU grant #9001"),
+          ])
         var hint = h('p.cp-convert-hint', Messages.convert_hint);
+        var source = h('p',
+            [h('a', {href:'https://github.com/xwiki-labs/office-converters'}, "Source code on GitHub")]
+        )
         var picker = h('input', {
             type: 'file'
         });
-        $form.append([hint, picker]);
+        $form.append([title, desc, hint, source, picker]);
 
         $(picker).on('change', function () {
             $form.find('button, div.notice').remove();
@@ -367,6 +379,7 @@ define([
             var ext = parsed && parsed[1];
             reader.onload = function (e) {
                 if (CONVERTERS[ext]) {
+                    $form.append("Convert to: ");
                     Object.keys(CONVERTERS[ext]).forEach(function (to) {
                         var button = h('button.btn', to);
                         console.error(to);
