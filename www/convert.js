@@ -368,7 +368,8 @@ define([
         var picker = h('input', {
             type: 'file'
         });
-        $form.append([title, desc, hint, source, picker]);
+        var output = h('p', "Output:")
+        $form.append([title, desc, hint, source, picker, output]);
 
         $(picker).on('change', function () {
             $form.find('button, div.notice').remove();
@@ -379,7 +380,6 @@ define([
             var ext = parsed && parsed[1];
             reader.onload = function (e) {
                 if (CONVERTERS[ext]) {
-                    $form.append("Convert to: ");
                     Object.keys(CONVERTERS[ext]).forEach(function (to) {
                         var button = h('button.btn', to);
                         console.error(to);
