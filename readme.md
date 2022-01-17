@@ -2,6 +2,8 @@
 
 This repository is an example of a browser-based document converter using Web Assembly. Developed by the [CryptPad](https://cryptpad.org) team for INTEROFFICE, a project funded by [NGI DAPSI](https://dapsi.ngi.eu) under [EU grant agreement no 781498](https://cordis.europa.eu/project/id/871498).
 
+Live demo: [https://interoffice.cryptpad.org/](https://interoffice.cryptpad.org/)
+
 ## License
 
 This software is available under the terms of the [Affero GNU Public License version 3.0 or later](LICENSE).
