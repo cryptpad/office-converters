@@ -20,3 +20,11 @@ input {
 button {
     margin-right: 5px;
 }
+
+#progressContainer:not(:empty) {
+    border: 1px solid #0087FF;
+    padding: 5px;
+    width: 100%;
+    margin-bottom: 10px;
+    text-align: center;
+}

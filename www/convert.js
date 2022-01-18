@@ -61,16 +61,23 @@ define([
 
     // Create and initialized an x2t object. Call back when it's ready.
     var getX2T = function (cb) {
+        var progressContainer = document.querySelector('#progressContainer');
+        if (!x2tInitialized) {
+            progressContainer.innerText = 'Loading client-side conversion module';
+        }
+
         require(['x2t.js'], function() {
             var x2t = window.Module;
             x2t.run();
             if (x2tInitialized) {
                 return void x2tReady.reg(function () {
+                    progressContainer.innerText = '';
                     cb(x2t);
                 });
             }
 
             x2t.onRuntimeInitialized = function() {
+                progressContainer.innerText = '';
                 // Init x2t js module
                 x2tInit(x2t);
                 x2tReady.reg(function () {
@@ -369,8 +376,9 @@ define([
         var picker = h('input', {
             type: 'file'
         });
+        var progressContainer = h('div#progressContainer');
         var output = h('p', "Output:")
-        $form.append([title, desc, hint, source, picker, output]);
+        $form.append([title, desc, hint, source, picker, progressContainer, output]);
 
         $(picker).on('change', function () {
             $form.find('button, div.notice').remove();
